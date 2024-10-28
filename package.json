@@ -1,0 +1,15 @@
+{
+  "name": "foods",
+  "version": "1.0.0",
+  "description": "fruits and veg tracker",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "author": "hiro6hamada6@gmail.com",
+  "license": "ISC",
+  "dependencies": {
+    "cron": "^3.1.7",
+    "node-cron": "^3.0.3"
+  }
+}
