@@ -5,6 +5,7 @@ import { useEffect, useRef, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { useAppDispatch } from '../../redux/store';
 import { getUser } from '../../redux/user/UserSlice';
+import { Header } from 'react-native/Libraries/NewAppScreen';
 
 export default function TabLayout() {
 
@@ -13,7 +14,7 @@ export default function TabLayout() {
   const { user, message } = useSelector((state: any) => state.user)
 
   useEffect(() => {
-    if(!user.username) {
+    if (!user.username) {
       dispatch(getUser({}))
     }
   }, [dispatch])
@@ -23,20 +24,36 @@ export default function TabLayout() {
       <Tabs.Screen
         name="index"
         options={{
-          title: message,
+          tabBarLabel: '',
+          headerTitle: message,
+          headerTitleStyle: {
+            fontSize: 15,
+            textAlign: 'center'
+          },
           tabBarInactiveBackgroundColor: theme['color-success-300'],
           tabBarActiveBackgroundColor: theme['color-success-500'],
           tabBarIcon: () => <FontAwesome size={28} name="home" color={theme['color-warning-300']} />,
           href: !user ? null : {
             pathname: '/'
-          }
+          },
+
+          tabBarLabelStyle: {
+            fontSize: 12,
+            fontWeight: "bold",
+        }
+
         }}
 
       />
       <Tabs.Screen
         name="Profile"
         options={{
-          title: message,
+          tabBarLabel: '',
+          headerTitle: message,
+          headerTitleStyle: {
+            fontSize: 15,
+            textAlign: 'center'
+          },
           tabBarInactiveBackgroundColor: theme['color-success-300'],
           tabBarActiveBackgroundColor: theme['color-success-500'],
           tabBarIcon: () => <FontAwesome size={28} name={"user-circle"} color={theme['color-warning-300']} />,
@@ -48,7 +65,12 @@ export default function TabLayout() {
       <Tabs.Screen
         name="LoginPage"
         options={{
-          title: message,
+          tabBarLabel: '',
+          headerTitle: message,
+          headerTitleStyle: {
+            fontSize: 15,
+            textAlign: 'center'
+          },
           tabBarInactiveBackgroundColor: theme['color-success-300'],
           tabBarActiveBackgroundColor: theme['color-success-500'],
           tabBarIcon: () => <FontAwesome size={28} name={"user-circle"} color={theme['color-warning-300']} />,

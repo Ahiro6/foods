@@ -2,7 +2,8 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import errorCatch from "../util/errorCatch";
 import axios from "axios";
 
-const root = "http://localhost:5000"
+const root = 'https://foods-kk5o.onrender.com'
+const devRoot = "http://localhost:5000"
 
 export const getPlants = createAsyncThunk('/plant/',
 

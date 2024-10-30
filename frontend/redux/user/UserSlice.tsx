@@ -5,7 +5,8 @@ import errorCatch from '../util/errorCatch'
 
 import axios from 'axios'
 
-const root = "http://localhost:5000"
+const devRoot = "http://localhost:5000"
+const root = 'https://foods-kk5o.onrender.com'
 
 interface User {
     username: string,
@@ -41,7 +42,7 @@ export const signup = createAsyncThunk('/user/signup/',
 
         if (res.data.message) throw new Error(res.data.message)
 
-        await AsyncStorage.setItem('FruitsUserKey', JSON.stringify(res.data.key));
+        await AsyncStorage.setItem('FruitsUserKey', JSON.stringify(res.data.token));
 
         return res.data
 
