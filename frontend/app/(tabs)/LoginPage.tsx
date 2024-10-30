@@ -4,7 +4,7 @@ import React, { useEffect, useState } from 'react'
 import Signup from '../../components/Signup';
 import Login from '../../components/Login';
 
-import { StyleSheet } from 'react-native'
+import { ScrollView, StyleSheet } from 'react-native'
 import { default as theme } from '../../app/theme.json'; // <-- Import app theme
 import { useAppSelector } from '../../redux/store';
 import { useSelector } from 'react-redux';
@@ -34,28 +34,30 @@ const LoginPage = () => {
 
   return (
     <Layout style={styles.container}>
-      <Layout style={styles.container}>
-        {selectedIndex ? <Signup/> 
-        : <Login/>}
-      </Layout>
+      <ScrollView>
+        <Layout style={styles.container}>
+          {selectedIndex ? <Signup />
+            : <Login />}
+        </Layout>
 
-      <BottomNavigation
-        selectedIndex={selectedIndex}
-        onSelect={index => setSelectedIndex(index)}
-        style={styles.tabs}
+        <BottomNavigation
+          selectedIndex={selectedIndex}
+          onSelect={index => setSelectedIndex(index)}
+          style={styles.tabs}
 
-      >
-        <BottomNavigationTab
-          icon={LoginIcon}
-          title='LOGIN'
+        >
+          <BottomNavigationTab
+            icon={LoginIcon}
+            title='LOGIN'
 
-        />
-        <BottomNavigationTab
-          icon={SignupIcon}
-          title='SIGNUP'
-        />
+          />
+          <BottomNavigationTab
+            icon={SignupIcon}
+            title='SIGNUP'
+          />
 
-      </BottomNavigation>
+        </BottomNavigation>
+      </ScrollView>
     </Layout>
   )
 }
@@ -64,9 +66,9 @@ export default LoginPage
 
 const styles = StyleSheet.create({
   container: {
-      backgroundColor: theme['color-info-200'],
+    backgroundColor: theme['color-info-200'],
   },
   tabs: {
-    
+
   }
 })

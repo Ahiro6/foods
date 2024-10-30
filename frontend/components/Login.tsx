@@ -31,7 +31,7 @@ const Login = () => {
       <Input style={styles.input} onChangeText={(v) => setUsername(v)} placeholder='Username'></Input>
 
       <Text style={styles.text}>Password</Text>
-      <Input style={styles.input} onChangeText={(v) => setPassword(v)} placeholder='Password'></Input>
+      <Input style={styles.input} secureTextEntry={true} onChangeText={(v) => setPassword(v)} placeholder='Password'></Input>
 
       <Button style={styles.btn} onPress={onLogin} >Login</Button>
     </Layout>
