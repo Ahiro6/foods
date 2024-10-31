@@ -15,7 +15,7 @@ export default function TabLayout() {
   const { apiMessage } = useSelector((state: any) => state.api)
   const { weekMessage } = useSelector((state: any) => state.weekScores)
 
-  const message = userMessage + "\n" + weekMessage + "\n" + apiMessage
+  const message = userMessage ? userMessage : (weekMessage ? weekMessage: apiMessage)
 
   useEffect(() => {
     if (!user.username) {

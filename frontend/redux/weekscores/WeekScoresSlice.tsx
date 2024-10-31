@@ -5,8 +5,8 @@ import errorCatch from '../util/errorCatch'
 import axios from 'axios'
 import AsyncStorage from "@react-native-async-storage/async-storage"
 
-const root = 'https://foods-kk5o.onrender.com'
-const devRoot = "http://localhost:5000"
+const droot = 'https://foods-kk5o.onrender.com'
+const root = "http://localhost:5000"
 
 const initWeekScores = {
     weekScores: [],

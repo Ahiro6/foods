@@ -16,12 +16,13 @@ const authUser = (req, res, next) => {
         req.token = token
         next();
     } catch (error) {
-        if (!token) { 
+        if (token === 'null') { 
             
             throw new AppError('Login Required', 401); 
         }
-
-        throw new AppError('Invalid Token ', 401)
+        else {
+            throw new AppError('Invalid Token', 401)
+        }
         //res.status(401).json({ message: 'Invalid Token' });
     }
 };

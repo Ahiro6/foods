@@ -75,15 +75,15 @@ const sendEmail = async (user, weekScore, fruitList) => {
 
 const scheduleJob = asyncError(async (date, days, token) => {
     const end = new Date(date)
-    end.setMinutes(end.getMinutes() + days)
-    //end.setDate(end.getDate() + days)
+    //end.setMinutes(end.getMinutes() + days)
+    end.setDate(end.getDate() + days)
 
     const headers = {
         'authorization': `Bearer ${token}`
     }
 
     cron.scheduleJob(end, async () => {
-        await axios.delete(`${process.env.DEVELOPEMENT_URL}/weekscore/`, {headers})
+        await axios.delete(`${process.env.URL}/weekscore/`, {headers})
     });
 })
 
@@ -100,8 +100,6 @@ const checkDuplicateFruits = (fruit, fruits) => {
 module.exports.UpdateWeekScore = async (req, res) => {
     const { name } = req.body
     const user = req.userId
-
-    console.log("Update", name)
 
     const fruitList = await FruitList.findOne({ user })
     const weekScore = await WeekScore.findOne({ user }).sort({ _id: -1 })
@@ -159,8 +157,6 @@ module.exports.StartWeekScore = async (req, res) => {
     await fruitList.save()
     await weekScore.save()
 
-    console.log("WeekScore", weekScore)
-
     scheduleJob(weekScore.weekStart, 7, req.token)
 
     res.status(201).json({ weekScores: [weekScore], fruitList })
@@ -180,10 +176,9 @@ module.exports.getWeekScore = async (req, res) => {
     }
 
     const days = startDate.getDate() + 7 - currDate.getDate() 
-    console.log(days)
+
     if(days <= 0) {
-        console.log("Running")
-        await axios.delete(`${process.env.DEVELOPEMENT_URL}/weekscore/`, {headers})
+        await axios.delete(`${process.env.URL}/weekscore/`, {headers})
     }
 
     res.status(200).json({weekScores: [weekScore], fruitList})

@@ -5,8 +5,8 @@ import errorCatch from '../util/errorCatch'
 
 import axios from 'axios'
 
-const devRoot = "http://localhost:5000"
-const root = 'https://foods-kk5o.onrender.com'
+const root = "http://localhost:5000"
+const droot = 'https://foods-kk5o.onrender.com'
 
 interface User {
     username: string,
