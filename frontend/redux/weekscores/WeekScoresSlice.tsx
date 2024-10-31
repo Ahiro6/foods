@@ -90,7 +90,7 @@ export const weekScoresSlice = createSlice({
         isLoading: false,
         isSuccess: false,
         isError: false,
-        message: ''
+        weekMessage: ''
     },
     reducers: {
 
@@ -102,7 +102,7 @@ export const weekScoresSlice = createSlice({
 
                 state.isLoading = false
                 state.isSuccess = true
-                state.message = ''
+                state.weekMessage = ''
             })
             .addCase(getWeekScores.pending, (state: any, action: any) => {
                 state.isLoading = true
@@ -112,7 +112,7 @@ export const weekScoresSlice = createSlice({
             .addCase(getWeekScores.rejected, (state: any, action) => {
                 state.isError = true,
                 state.isLoading = false,
-                state.message = action.payload
+                state.weekMessage = action.payload
             })
 
             .addCase(getWeekScore.fulfilled, (state: any, action: any) => {
@@ -120,7 +120,7 @@ export const weekScoresSlice = createSlice({
 
                 state.isLoading = false
                 state.isSuccess = true
-                state.message = ''
+                state.weekMessage = ''
             })
             .addCase(getWeekScore.pending, (state: any, action: any) => {
                 state.isLoading = true
@@ -130,7 +130,7 @@ export const weekScoresSlice = createSlice({
             .addCase(getWeekScore.rejected, (state: any, action) => {
                 state.isError = true,
                 state.isLoading = false,
-                state.message = action.payload
+                state.weekMessage = action.payload
             })
 
             .addCase(startWeekScore.fulfilled, (state: any, action: any) => {
@@ -138,7 +138,7 @@ export const weekScoresSlice = createSlice({
 
                 state.isLoading = false
                 state.isSuccess = true
-                state.message = ''
+                state.weekMessage = ''
             })
             .addCase(startWeekScore.pending, (state: any, action: any) => {
                 state.isLoading = true
@@ -148,7 +148,7 @@ export const weekScoresSlice = createSlice({
             .addCase(startWeekScore.rejected, (state: any, action) => {
                 state.isError = true,
                 state.isLoading = false,
-                state.message = action.payload
+                state.weekMessage = action.payload
             })
 
             .addCase(updateWeekScore.fulfilled, (state: any, action: any) => {
@@ -156,7 +156,7 @@ export const weekScoresSlice = createSlice({
 
                 state.isLoading = false
                 state.isSuccess = true
-                state.message = ''
+                state.weekMessage = ''
             })
             .addCase(updateWeekScore.pending, (state: any, action: any) => {
                 state.isLoading = true
@@ -166,7 +166,7 @@ export const weekScoresSlice = createSlice({
             .addCase(updateWeekScore.rejected, (state: any, action) => {
                 state.isError = true,
                 state.isLoading = false,
-                state.message = action.payload
+                state.weekMessage = action.payload
             })
     }
 })

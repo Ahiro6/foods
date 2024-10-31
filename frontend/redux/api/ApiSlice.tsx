@@ -24,7 +24,7 @@ export const apiSlice = createSlice({
         isLoading: false,
         isSuccess: false,
         isError: false,
-        message: ''
+        apiMessage: ''
     },
     reducers: {
 
@@ -36,7 +36,7 @@ export const apiSlice = createSlice({
 
                 state.isLoading = false
                 state.isSuccess = true
-                state.message = ''
+                state.apiMessage = ''
             })
             .addCase(getPlants.pending, (state: any, action: any) => {
                 state.isLoading = true
@@ -46,7 +46,7 @@ export const apiSlice = createSlice({
             .addCase(getPlants.rejected, (state: any, action) => {
                 state.isError = true,
                 state.isLoading = false,
-                state.message = action.payload
+                state.apiMessage = action.payload
             })
     }
 })

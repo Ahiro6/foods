@@ -11,7 +11,11 @@ export default function TabLayout() {
 
   const dispatch = useAppDispatch()
 
-  const { user, message } = useSelector((state: any) => state.user)
+  const { user, userMessage } = useSelector((state: any) => state.user)
+  const { apiMessage } = useSelector((state: any) => state.api)
+  const { weekMessage } = useSelector((state: any) => state.weekScores)
+
+  const message = userMessage + "\n" + weekMessage + "\n" + apiMessage
 
   useEffect(() => {
     if (!user.username) {
@@ -28,8 +32,6 @@ export default function TabLayout() {
           headerTitle: message,
           headerTitleStyle: {
             fontSize: 15,
-            width: '400%',
-            textAlign: 'center',
           },
           tabBarInactiveBackgroundColor: theme['color-success-300'],
           tabBarActiveBackgroundColor: theme['color-success-500'],

@@ -100,7 +100,7 @@ export const userSlice = createSlice({
         isLoading: false,
         isSuccess: false,
         isError: false,
-        message: ''
+        userMessage: ''
     },
     reducers: {
         getDemo: (state) => {
@@ -118,7 +118,7 @@ export const userSlice = createSlice({
 
                 state.isLoading = false
                 state.isSuccess = true
-                state.message = ''
+                state.userMessage = ''
             })
             .addCase(login.pending, (state: any, action: any) => {
                 state.isLoading = true
@@ -128,7 +128,7 @@ export const userSlice = createSlice({
             .addCase(login.rejected, (state: any, action) => {
                 state.isError = true,
                 state.isLoading = false,
-                state.message = action.payload
+                state.userMessage = action.payload
             })
 
             .addCase(signup.fulfilled, (state: any, action: any) => {
@@ -136,7 +136,7 @@ export const userSlice = createSlice({
 
                 state.isLoading = false
                 state.isSuccess = true
-                state.message = ''
+                state.userMessage = ''
             })
             .addCase(signup.pending, (state: any, action: any) => {
                 state.isLoading = true
@@ -146,7 +146,7 @@ export const userSlice = createSlice({
             .addCase(signup.rejected, (state: any, action) => {
                 state.isError = true,
                 state.isLoading = false,
-                state.message = action.payload
+                state.userMessage = action.payload
             })
 
             .addCase(logout.fulfilled, (state: any, action: any) => {
@@ -154,7 +154,7 @@ export const userSlice = createSlice({
 
                 state.isLoading = false
                 state.isSuccess = true
-                state.message = ''
+                state.userMessage = ''
             })
             .addCase(logout.pending, (state: any, action: any) => {
                 state.isLoading = true
@@ -164,7 +164,7 @@ export const userSlice = createSlice({
             .addCase(logout.rejected, (state: any, action) => {
                 state.isError = true,
                 state.isLoading = false,
-                state.message = action.payload
+                state.userMessage = action.payload
             })
 
             .addCase(getUser.fulfilled, (state: any, action: any) => {
@@ -172,7 +172,7 @@ export const userSlice = createSlice({
 
                 state.isLoading = false
                 state.isSuccess = true
-                state.message = ''
+                state.userMessage = ''
             })
             .addCase(getUser.pending, (state: any, action: any) => {
                 state.isLoading = true
@@ -182,7 +182,7 @@ export const userSlice = createSlice({
             .addCase(getUser.rejected, (state: any, action) => {
                 state.isError = true,
                 state.isLoading = false,
-                state.message = action.payload
+                state.userMessage = action.payload
             })
 
     }
