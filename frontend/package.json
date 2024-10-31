@@ -11,7 +11,8 @@
     "test": "jest --watchAll",
     "lint": "expo lint",
     "build-android": "eas build -p android --profile preview",
-    "install-android": "eas build:run -p android"
+    "install-android": "eas build:run -p android",
+    "submit-android": "eas submit --platform android "
 
   },
   "jest": {
