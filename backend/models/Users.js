@@ -1,6 +1,7 @@
 const mongoose = require('mongoose')
 const FruitList = require('./FruitList')
 const bcrypt = require('bcrypt')
+const AppError = require('../utils/AppError')
 
 const userSchema = new mongoose.Schema({
     username: {
@@ -66,6 +67,26 @@ userSchema.post('save', async (doc, next) => {
 
     next()
 })
+
+userSchema.pre('save', async function(next) {
+    try {
+      const User = this.constructor;
+      
+      const usernameExists = await User.findOne({ username: this.username });
+      if (usernameExists) {
+        throw new AppError('Username already exists', 400);
+      }
+      
+      const emailExists = await User.findOne({ email: this.email });
+      if (emailExists) {
+        throw new AppError('Email already exists', 400);
+      }
+      
+      next();
+    } catch (error) {
+      next(error);
+    }
+  });
 
 const User = new mongoose.model('User', userSchema)
 
