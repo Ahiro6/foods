@@ -5,8 +5,7 @@ import errorCatch from '../util/errorCatch'
 
 import axios from 'axios'
 
-const root = "http://localhost:5000"
-const droot = 'https://foods-kk5o.onrender.com'
+import api from '../util/axiosApi';
 
 interface User {
     username: string,
@@ -37,7 +36,7 @@ export const signup = createAsyncThunk('/user/signup/',
 
         console.group('User')
 
-        const res = await axios.post(root + '/user/signup',
+        const res = await api.post('/user/signup',
             { username, firstname, surname, email, password })
 
         if (res.data.message) throw new Error(res.data.message)
@@ -52,7 +51,7 @@ export const signup = createAsyncThunk('/user/signup/',
 export const login = createAsyncThunk('/user/login/',
 
     errorCatch(async ({ username, password }: { username: string, password: string }, thunkAPI: any) => {
-        const res = await axios.post(root + '/user/login', { username, password })
+        const res = await api.post('/user/login', { username, password })
 
         if (res.data.message) throw new Error(res.data.message)
 
@@ -85,7 +84,7 @@ export const getUser = createAsyncThunk('/user/',
             'authorization': `Bearer ${token}`
         }
 
-        const res = await axios.get(root + '/user/get/', { headers })
+        const res = await api.get('/user/get/', { headers })
 
         if (res.data.message) throw new Error(res.data.message)
 

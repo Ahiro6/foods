@@ -2,14 +2,13 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import errorCatch from "../util/errorCatch";
 import axios from "axios";
 
-const droot = 'https://foods-kk5o.onrender.com'
-const root = "http://localhost:5000"
+import api from '../util/axiosApi';
 
 export const getPlants = createAsyncThunk('/plant/',
 
     errorCatch(async ({ plant }: {plant: string}, thunkAPI: any) => {
 
-        const res = await axios.get(`${root}/api/plants/${plant}`)
+        const res = await api.get(`/api/plants/${plant}`)
 
         if (res.data.message) throw new Error(res.data.message)
 

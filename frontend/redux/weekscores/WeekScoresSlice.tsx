@@ -5,8 +5,7 @@ import errorCatch from '../util/errorCatch'
 import axios from 'axios'
 import AsyncStorage from "@react-native-async-storage/async-storage"
 
-const droot = 'https://foods-kk5o.onrender.com'
-const root = "http://localhost:5000"
+import api from '../util/axiosApi';
 
 const initWeekScores = {
     weekScores: [],
@@ -22,7 +21,7 @@ export const getWeekScores = createAsyncThunk("/weekscores/all/",
             'authorization': `Bearer ${token}`
         }
 
-        const res = await axios.get(root + '/weekscore/all/', { headers })
+        const res = await api.get('/weekscore/all/', { headers })
 
         if (res.data.message) throw new Error(res.data.message)
 
@@ -39,7 +38,7 @@ export const getWeekScore = createAsyncThunk("/weekscores/",
             'authorization': `Bearer ${token}`
         }
 
-        const res = await axios.get(root + '/weekscore/', { headers })
+        const res = await api.get('/weekscore/', { headers })
 
         if (res.data.message) throw new Error(res.data.message)
 
@@ -56,7 +55,7 @@ export const startWeekScore = createAsyncThunk("/weekscores/start",
             'authorization': `Bearer ${token}`
         }
 
-        const res = await axios.post(root + '/weekscore/', {}, { headers })
+        const res = await api.post('/weekscore/', {}, { headers })
 
         if (res.data.message) throw new Error(res.data.message)
 
@@ -75,7 +74,7 @@ export const updateWeekScore = createAsyncThunk("/weekscores/update",
             'authorization': `Bearer ${token}`
         }
 
-        const res = await axios.put(root + '/weekscore/', {name}, { headers })
+        const res = await api.put('/weekscore/', {name}, { headers })
 
         if (res.data.message) throw new Error(res.data.message)
 
