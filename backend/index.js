@@ -7,16 +7,10 @@ const connectDB = require('./db/mongodb')
 connectDB()
 
 const express = require('express');
-const path = require('path');
-const cookieParser = require('cookie-parser');
-const morgan = require('morgan');
-const passport = require("passport");
 
 const helmet = require("helmet")
 const mongoSanitize = require("express-mongo-sanitize")
-const methodOverride = require("method-override");
 
-const session = require("express-session");
 const cors = require('cors')
 
 const app = express();
@@ -25,15 +19,10 @@ const apiRouter = require('./routes/Api')
 const userRouter = require('./routes/Users');
 const weekScoreRouter = require('./routes/WeekScores')
 
-const AppError = require("./utils/AppError");
-
-
 app.use(mongoSanitize())
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-//app.use(methodOverride("_method"));
 app.use(cors());
-//app.use(cookieParser());
 
 app.use(
   helmet.contentSecurityPolicy({

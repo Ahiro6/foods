@@ -55,8 +55,6 @@ export default function TabLayout() {
           headerTitle: message,
           headerTitleStyle: {
             fontSize: 15,
-            width: '400%',
-            textAlign: 'center',
           },
           tabBarInactiveBackgroundColor: theme['color-success-300'],
           tabBarActiveBackgroundColor: theme['color-success-500'],
@@ -73,8 +71,6 @@ export default function TabLayout() {
           headerTitle: message,
           headerTitleStyle: {
             fontSize: 15,
-            width: '400%',
-            textAlign: 'center',
           },
           tabBarInactiveBackgroundColor: theme['color-success-300'],
           tabBarActiveBackgroundColor: theme['color-success-500'],

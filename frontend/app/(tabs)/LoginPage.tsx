@@ -15,7 +15,7 @@ const LoginPage = () => {
 
   const [selectedIndex, setSelectedIndex] = useState(0);
 
-  if (user.username) return <Redirect href='/Profile' />
+  if (user && user.username) return <Redirect href='/Profile' />
 
   const LoginIcon = (props: any): IconElement => (
     <Icon

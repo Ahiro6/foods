@@ -39,6 +39,8 @@ export const signup = createAsyncThunk('/user/signup/',
         const res = await api.post('/user/signup',
             { username, firstname, surname, email, password })
 
+        console.log(res.data)
+
         if (res.data.message) throw new Error(res.data.message)
 
         await AsyncStorage.setItem('FruitsUserKey', JSON.stringify(res.data.token));
