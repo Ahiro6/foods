@@ -1,0 +1,21 @@
+{
+  "name": "foods",
+  "version": "1.0.0",
+  "description": "fruits and veg tracker",
+  "main": "index.js",
+  "scripts": {
+    "test": "test",
+    "start": "concurrently \" npm --prefix ./backend/ run server \"  \" npm --prefix ./frontend/ run dev \" "
+  },
+  "author": "hiro6hamada6@gmail.com",
+  "license": "ISC",
+  "dependencies": {
+    "cron": "^3.1.7",
+    "expo": "^52.0.23",
+    "node-cron": "^3.0.3"
+  },
+  "devDependencies": {
+    "typescript": "^5.3.3",
+    "@types/react": "~18.3.12"
+  }
+}
